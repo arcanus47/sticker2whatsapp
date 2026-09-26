@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#0b141a">
+
+    <meta name="description" content="Convierte tus stickers de Telegram a WhatsApp fácilmente.">
+
+    <title>Sticker2WhatsApp — Telegram a WhatsApp</title>
+
+
+    <!-- =====================================================
+         BOOTSTRAP 5
+    ====================================================== -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- =====================================================
+         BOOTSTRAP ICONS
+    ====================================================== -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+
+    <!-- =====================================================
+         GOOGLE FONT
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+    <!-- =====================================================
+         PWA
+    ====================================================== -->
+
+    <link rel="manifest" href="manifest.json">
+
+
+    <!-- =====================================================
+         CUSTOM CSS
+    ====================================================== -->
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <nav class="navbar navbar-expand-lg app-navbar">
+
+        <div class="container">
+
+            <a href="#" class="navbar-brand app-brand">
+
+                <span class="brand-icon">
+
+                    <i class="bi bi-sticky"></i>
+
+                </span>
+
+                <span>
+
+                    Sticker<span class="brand-accent">2</span>WhatsApp
+
+                </span>
+
+            </a>
+
+
+            <div class="navbar-text d-none d-md-flex">
+
+                <span class="status-dot"></span>
+
+                Gratis · Sin registro
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="hero-section">
+
+            <div class="container">
+
+                <div class="row justify-content-center text-center">
+
+                    <div class="col-lg-8">
+
+
+                        <div class="hero-badge">
+
+                            <i class="bi bi-telegram"></i>
+
+                            Telegram → WhatsApp
+
+                        </div>
+
+
+                        <h1 class="hero-title">
+
+                            Tus stickers de Telegram.
+
+                            <span>Ahora en WhatsApp.</span>
+
+                        </h1>
+
+
+                        <p class="hero-description">
+
+                            Selecciona tu carpeta de Telegram,
+                            elige los stickers que quieras convertir
+                            y guárdalos directamente donde prefieras.
+
+                        </p>
+
+
+                        <div class="supported-platforms">
+
+                            <span>
+
+                                <i class="bi bi-telegram"></i>
+
+                                Telegram
+
+                            </span>
+
+
+                            <span>
+
+                                <i class="bi bi-arrow-right"></i>
+
+                                Conversión
+
+                            </span>
+
+
+                            <span>
+
+                                <i class="bi bi-whatsapp"></i>
+
+                                WhatsApp
+
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CONVERTER
+        ================================================== -->
+
+        <section class="converter-section">
+
+            <div class="container">
+
+                <div class="row justify-content-center">
+
+                    <div class="col-12 col-lg-7 col-xl-6">
+
+
+                        <!-- =================================
+                             PASO 1
+                        ================================== -->
+
+                        <div class="converter-card">
+
+                            <div class="card-header-custom">
+
+                                <div>
+
+                                    <span class="step-label">
+
+                                        PASO 1
+
+                                    </span>
+
+
+                                    <h2>
+
+                                        Carpeta de Telegram
+
+                                    </h2>
+
+                                </div>
+
+
+                                <div class="card-header-icon">
+
+                                    <i class="bi bi-telegram"></i>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- =================================
+                                 TELEGRAM SOURCE
+                            ================================== -->
+
+                            <div class="telegram-source-box">
+
+
+                                <div class="source-icon">
+
+                                    <i class="bi bi-folder2-open"></i>
+
+                                </div>
+
+
+                                <h3>
+
+                                    Selecciona tu carpeta de stickers
+
+                                </h3>
+
+
+                                <p>
+
+                                    La aplicación buscará automáticamente
+                                    los stickers compatibles dentro de
+                                    la carpeta que selecciones.
+
+                                </p>
+
+
+                                <button id="selectTelegramFolderButton" type="button" class="upload-button">
+
+                                    <i class="bi bi-folder-plus"></i>
+
+                                    Seleccionar carpeta de Telegram
+
+                                </button>
+
+
+                                <div id="telegramFolderInfo" class="folder-info hidden">
+
+                                    <i class="bi bi-folder-check"></i>
+
+                                    <span id="telegramFolderName">
+
+                                        Carpeta no seleccionada
+
+                                    </span>
+
+                                </div>
+
+
+                                <small class="upload-note">
+
+                                    Solo necesitas seleccionar la carpeta
+                                    una vez para comenzar.
+
+                                </small>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =================================
+                             PASO 2
+                        ================================== -->
+
+                        <div id="telegramStickersContainer" class="converter-card hidden">
+
+                            <div class="card-header-custom">
+
+                                <div>
+
+                                    <span class="step-label">
+
+                                        PASO 2
+
+                                    </span>
+
+
+                                    <h2>
+
+                                        Elige tus stickers
+
+                                    </h2>
+
+                                </div>
+
+
+                                <div class="card-header-icon">
+
+                                    <i class="bi bi-images"></i>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- =================================
+                                 STICKER SEARCH / ACTIONS
+                            ================================== -->
+
+                            <div class="sticker-browser-controls">
+
+
+                                <div class="sticker-browser-info">
+
+                                    <i class="bi bi-collection"></i>
+
+                                    <span>
+
+                                        Stickers encontrados:
+
+                                    </span>
+
+                                    <strong id="telegramStickerCount">
+
+                                        0
+
+                                    </strong>
+
+                                </div>
+
+
+                                <button id="selectAllButton" type="button" class="secondary-button">
+
+                                    <i class="bi bi-check2-square"></i>
+
+                                    Seleccionar todos
+
+                                </button>
+
+                            </div>
+
+
+                            <!-- =================================
+                                 STICKER GRID
+                            ================================== -->
+
+                            <div id="telegramStickerGrid" class="telegram-sticker-grid">
+
+                                <!--
+                                    JavaScript agregará aquí
+                                    los stickers encontrados
+                                -->
+
+                            </div>
+
+
+                            <!-- =================================
+                                 SELECCIÓN
+                            ================================== -->
+
+                            <div id="telegramSelectionInfo" class="selection-info hidden">
+
+                                <div class="selection-header">
+
+                                    <div>
+
+                                        <strong>
+
+                                            Stickers seleccionados
+
+                                        </strong>
+
+
+                                        <span id="telegramSelectedCount" class="sticker-count">
+
+                                            0
+
+                                        </span>
+
+                                    </div>
+
+
+                                    <button id="clearTelegramSelectionButton" type="button"
+                                        class="clear-selection-button">
+
+                                        <i class="bi bi-x-circle"></i>
+
+                                        Quitar selección
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- =================================
+                                 CONTINUE
+                            ================================== -->
+
+                            <button id="continueToDestinationButton" type="button" class="convert-button" disabled>
+
+                                <i class="bi bi-arrow-right"></i>
+
+                                Continuar
+
+                            </button>
+
+                        </div>
+
+
+
+                        <!-- =================================
+                             PASO 3
+                        ================================== -->
+
+                        <div id="destinationContainer" class="converter-card hidden">
+
+                            <div class="card-header-custom">
+
+                                <div>
+
+                                    <span class="step-label">
+
+                                        PASO 3
+
+                                    </span>
+
+
+                                    <h2>
+
+                                        ¿Dónde quieres guardarlos?
+
+                                    </h2>
+
+                                </div>
+
+
+                                <div class="card-header-icon">
+
+                                    <i class="bi bi-folder-check"></i>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- =================================
+                                 DESTINATION
+                            ================================== -->
+
+                            <div class="destination-box">
+
+
+                                <div class="destination-icon">
+
+                                    <i class="bi bi-folder2-open"></i>
+
+                                </div>
+
+
+                                <h3>
+
+                                    Elige una carpeta de destino
+
+                                </h3>
+
+
+                                <p>
+
+                                    Selecciona dónde quieres guardar
+                                    los stickers convertidos para
+                                    utilizarlos posteriormente en WhatsApp.
+
+                                </p>
+
+
+                                <button id="selectDestinationButton" type="button" class="upload-button">
+
+                                    <i class="bi bi-folder-plus"></i>
+
+                                    Elegir carpeta
+
+                                </button>
+
+
+                                <div id="destinationInfo" class="folder-info hidden">
+
+                                    <i class="bi bi-folder-check"></i>
+
+                                    <span id="destinationFolderName">
+
+                                        Carpeta no seleccionada
+
+                                    </span>
+
+                                </div>
+
+
+                            </div>
+
+
+                            <!-- =================================
+                                 CONVERT
+                            ================================== -->
+
+                            <button id="convertButton" type="button" class="convert-button" disabled>
+
+                                <i class="bi bi-magic"></i>
+
+                                Convertir y guardar stickers
+
+                            </button>
+
+                        </div>
+
+
+
+                        <!-- =================================
+                             LOADING
+                        ================================== -->
+
+                        <div id="loading" class="loading hidden">
+
+                            <div class="loading-card">
+
+                                <div class="spinner"></div>
+
+
+                                <h3>
+
+                                    Procesando stickers...
+
+                                </h3>
+
+
+                                <p>
+
+                                    Estamos convirtiendo tus stickers
+                                    al formato compatible con WhatsApp.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =================================
+                             RESULTADO
+                        ================================== -->
+
+                        <div id="resultContainer" class="converter-card result-container hidden">
+
+                            <div class="success-container">
+
+
+                                <div class="success-icon">
+
+                                    <i class="bi bi-check-lg"></i>
+
+                                </div>
+
+
+                                <span class="success-label">
+
+                                    CONVERSIÓN COMPLETADA
+
+                                </span>
+
+
+                                <h2>
+
+                                    ¡Tus stickers están listos!
+
+                                </h2>
+
+
+                                <p>
+
+                                    Los stickers de Telegram fueron
+                                    convertidos correctamente y guardados
+                                    en la carpeta seleccionada.
+
+                                </p>
+
+
+                                <div id="resultSummary" class="result-summary">
+
+                                    <i class="bi bi-check-circle"></i>
+
+                                    <span>
+
+                                        Conversión completada correctamente.
+
+                                    </span>
+
+                                </div>
+
+
+                                <!-- =================================
+                                     FALLBACK DOWNLOAD
+                                ================================== -->
+
+                                <a id="downloadButton" class="download-button" href="#" download>
+
+                                    <i class="bi bi-download"></i>
+
+                                    Descargar stickers
+
+                                </a>
+
+
+                                <button id="newStickerButton" type="button" class="secondary-button">
+
+                                    <i class="bi bi-arrow-repeat"></i>
+
+                                    Seleccionar otros stickers
+
+                                </button>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =================================
+                             ERROR
+                        ================================== -->
+
+                        <div id="error" class="error hidden">
+
+                            <i class="bi bi-exclamation-triangle-fill"></i>
+
+                            <span></span>
+
+                        </div>
+
+
+
+                        <!-- =================================
+                             FEATURES
+                        ================================== -->
+
+                        <div class="features">
+
+
+                            <div class="feature">
+
+                                <div class="feature-icon">
+
+                                    <i class="bi bi-folder2-open"></i>
+
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+
+                                        Fácil
+
+                                    </strong>
+
+
+                                    <small>
+
+                                        Selecciona tu carpeta de Telegram
+
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="feature">
+
+                                <div class="feature-icon">
+
+                                    <i class="bi bi-shield-check"></i>
+
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+
+                                        Privado
+
+                                    </strong>
+
+
+                                    <small>
+
+                                        Sin crear una cuenta
+
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="feature">
+
+                                <div class="feature-icon">
+
+                                    <i class="bi bi-phone"></i>
+
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+
+                                        Mobile
+
+                                    </strong>
+
+
+                                    <small>
+
+                                        Diseñado para tu teléfono
+
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="app-footer">
+
+        <div class="container">
+
+            <div class="footer-content">
+
+
+                <div class="footer-brand">
+
+                    <i class="bi bi-sticky"></i>
+
+                    Sticker2WhatsApp
+
+                </div>
+
+
+                <div class="footer-copy">
+
+                    © 2026 Sticker2WhatsApp · MVP
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         BOOTSTRAP JS
+    ====================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+    <!-- =====================================================
+         APP JS
+    ====================================================== -->
+
+    <script src="js/app.js"></script>
+
+
+</body>
+
+</html>

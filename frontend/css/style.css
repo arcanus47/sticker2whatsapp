@@ -1,0 +1,2348 @@
+/* =========================================================
+   STICKER2WHATSAPP
+   Telegram → WhatsApp
+   Custom UI
+========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+    --bg-main: #f5f7f9;
+
+    --bg-dark: #0b141a;
+
+    --bg-card: #ffffff;
+
+    --text-main: #111b21;
+
+    --text-muted: #667781;
+
+    --border: #e5e9ec;
+
+    --primary: #25d366;
+
+    --primary-dark: #128c7e;
+
+    --primary-light: #e8fbef;
+
+    --telegram: #229ed9;
+
+    --telegram-light: #e8f6fd;
+
+    --shadow:
+        0 10px 35px rgba(11, 20, 26, 0.07);
+
+    --shadow-hover:
+        0 18px 45px rgba(11, 20, 26, 0.12);
+
+    --radius-lg: 24px;
+
+    --radius-md: 16px;
+
+    --radius-sm: 12px;
+
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    margin: 0;
+
+    font-family:
+        "Inter",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background:
+        var(--bg-main);
+
+    color:
+        var(--text-main);
+
+    -webkit-font-smoothing:
+        antialiased;
+
+}
+
+
+button,
+a {
+
+    -webkit-tap-highlight-color:
+        transparent;
+
+}
+
+
+button:focus-visible,
+a:focus-visible {
+
+    outline:
+        3px solid rgba(37, 211, 102, 0.35);
+
+    outline-offset:
+        3px;
+
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.app-navbar {
+
+    background:
+        rgba(11, 20, 26, 0.96);
+
+    backdrop-filter:
+        blur(15px);
+
+    padding:
+        15px 0;
+
+}
+
+
+.app-brand {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    color:
+        #ffffff !important;
+
+    font-weight:
+        800;
+
+    font-size:
+        20px;
+
+    letter-spacing:
+        -0.5px;
+
+    text-decoration:
+        none;
+
+}
+
+
+.app-brand:hover {
+
+    color:
+        #ffffff !important;
+
+}
+
+
+.brand-icon {
+
+    width:
+        38px;
+
+    height:
+        38px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        11px;
+
+    background:
+        linear-gradient(135deg,
+            var(--primary),
+            var(--primary-dark));
+
+    color:
+        white;
+
+    font-size:
+        19px;
+
+}
+
+
+.brand-accent {
+
+    color:
+        var(--primary);
+
+}
+
+
+.navbar-text {
+
+    color:
+        #aebac1;
+
+    font-size:
+        13px;
+
+    font-weight:
+        500;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+}
+
+
+.status-dot {
+
+    width:
+        7px;
+
+    height:
+        7px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--primary);
+
+    box-shadow:
+        0 0 0 4px rgba(37, 211, 102, 0.12);
+
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main-content {
+
+    min-height:
+        calc(100vh - 70px);
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero-section {
+
+    background:
+        radial-gradient(circle at 50% 0%,
+            rgba(34, 158, 217, 0.16),
+            transparent 55%),
+        var(--bg-dark);
+
+    padding:
+        65px 0 80px;
+
+    color:
+        white;
+
+}
+
+
+.hero-badge {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    padding:
+        8px 14px;
+
+    border-radius:
+        50px;
+
+    background:
+        rgba(34, 158, 217, 0.12);
+
+    border:
+        1px solid rgba(34, 158, 217, 0.25);
+
+    color:
+        #72cdf3;
+
+    font-size:
+        12px;
+
+    font-weight:
+        600;
+
+    margin-bottom:
+        22px;
+
+}
+
+
+.hero-title {
+
+    font-size:
+        clamp(38px, 7vw, 64px);
+
+    line-height:
+        1.05;
+
+    letter-spacing:
+        -2.5px;
+
+    font-weight:
+        800;
+
+    margin:
+        0;
+
+}
+
+
+.hero-title span {
+
+    display:
+        block;
+
+    color:
+        var(--primary);
+
+}
+
+
+.hero-description {
+
+    max-width:
+        680px;
+
+    margin:
+        22px auto 0;
+
+    color:
+        #b7c3c9;
+
+    font-size:
+        clamp(15px, 2vw, 18px);
+
+    line-height:
+        1.7;
+
+}
+
+
+.supported-platforms {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        10px;
+
+    margin-top:
+        25px;
+
+}
+
+
+.supported-platforms span {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    padding:
+        8px 13px;
+
+    border-radius:
+        50px;
+
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.09);
+
+    color:
+        #c9d2d7;
+
+    font-size:
+        12px;
+
+}
+
+
+/* =========================================================
+   CONVERTER
+========================================================= */
+
+.converter-section {
+
+    margin-top:
+        -35px;
+
+    padding-bottom:
+        50px;
+
+}
+
+
+.converter-card {
+
+    background:
+        var(--bg-card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-lg);
+
+    padding:
+        28px;
+
+    box-shadow:
+        var(--shadow);
+
+    margin-bottom:
+        20px;
+
+}
+
+
+.card-header-custom {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        15px;
+
+    margin-bottom:
+        25px;
+
+}
+
+
+.step-label {
+
+    display:
+        block;
+
+    color:
+        var(--primary-dark);
+
+    font-size:
+        10px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        1.2px;
+
+    margin-bottom:
+        5px;
+
+}
+
+
+.card-header-custom h2 {
+
+    margin:
+        0;
+
+    font-size:
+        21px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        -0.5px;
+
+}
+
+
+.card-header-icon {
+
+    width:
+        46px;
+
+    height:
+        46px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    flex-shrink:
+        0;
+
+    border-radius:
+        14px;
+
+    background:
+        var(--telegram-light);
+
+    color:
+        var(--telegram);
+
+    font-size:
+        20px;
+
+}
+
+
+/* =========================================================
+   TELEGRAM SOURCE
+========================================================= */
+
+.telegram-source-box {
+
+    border:
+        2px dashed #d8e0e4;
+
+    border-radius:
+        var(--radius-md);
+
+    padding:
+        40px 25px;
+
+    text-align:
+        center;
+
+    background:
+        #fbfcfd;
+
+    transition:
+        all .25s ease;
+
+}
+
+
+.telegram-source-box:hover {
+
+    border-color:
+        rgba(34, 158, 217, .55);
+
+    background:
+        #f8fcff;
+
+}
+
+
+.source-icon {
+
+    width:
+        72px;
+
+    height:
+        72px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    margin:
+        0 auto 20px;
+
+    border-radius:
+        20px;
+
+    background:
+        var(--telegram-light);
+
+    color:
+        var(--telegram);
+
+    font-size:
+        32px;
+
+}
+
+
+.telegram-source-box h3 {
+
+    margin:
+        0 0 9px;
+
+    font-size:
+        19px;
+
+    font-weight:
+        700;
+
+}
+
+
+.telegram-source-box p {
+
+    max-width:
+        470px;
+
+    margin:
+        0 auto 24px;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        14px;
+
+    line-height:
+        1.6;
+
+}
+
+
+/* =========================================================
+   FOLDER INFO
+========================================================= */
+
+.folder-info {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        8px;
+
+    max-width:
+        100%;
+
+    margin:
+        16px auto 0;
+
+    padding:
+        10px 13px;
+
+    border:
+        1px solid #ccefd8;
+
+    border-radius:
+        var(--radius-sm);
+
+    background:
+        var(--primary-light);
+
+    color:
+        var(--primary-dark);
+
+    font-size:
+        12px;
+
+    font-weight:
+        600;
+
+    overflow:
+        hidden;
+
+}
+
+
+.folder-info i {
+
+    flex-shrink:
+        0;
+
+}
+
+
+.folder-info span {
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+    white-space:
+        nowrap;
+
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.upload-button,
+.download-button,
+.convert-button {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        9px;
+
+    border:
+        none;
+
+    border-radius:
+        var(--radius-sm);
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+
+}
+
+
+/* =========================================================
+   UPLOAD / FOLDER BUTTON
+========================================================= */
+
+.upload-button {
+
+    padding:
+        13px 20px;
+
+    background:
+        var(--telegram);
+
+    color:
+        #ffffff;
+
+}
+
+
+.upload-button:hover {
+
+    background:
+        #1b8ac0;
+
+    color:
+        #ffffff;
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 8px 20px rgba(34, 158, 217, .22);
+
+}
+
+
+.upload-button:active {
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =========================================================
+   STICKER BROWSER
+========================================================= */
+
+.sticker-browser-controls {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        12px;
+
+    margin-bottom:
+        18px;
+
+}
+
+
+.sticker-browser-info {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        12px;
+
+}
+
+
+.sticker-browser-info i {
+
+    color:
+        var(--telegram);
+
+    font-size:
+        15px;
+
+}
+
+
+.sticker-browser-info strong {
+
+    color:
+        var(--text-main);
+
+    font-weight:
+        800;
+
+}
+
+
+.secondary-button {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        7px;
+
+    padding:
+        9px 12px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        9px;
+
+    background:
+        #ffffff;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    transition:
+        all .2s ease;
+
+}
+
+
+.secondary-button:hover {
+
+    background:
+        #f7f9fa;
+
+    border-color:
+        #d5dce0;
+
+    color:
+        var(--text-main);
+
+}
+
+
+/* =========================================================
+   TELEGRAM STICKER GRID
+========================================================= */
+
+.telegram-sticker-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(4,
+            1fr);
+
+    gap:
+        10px;
+
+    max-height:
+        520px;
+
+    overflow-y:
+        auto;
+
+    padding:
+        3px;
+
+}
+
+
+.telegram-sticker-item {
+
+    position:
+        relative;
+
+    min-width:
+        0;
+
+    cursor:
+        pointer;
+
+}
+
+
+.telegram-sticker-card {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    aspect-ratio:
+        1 / 1;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    overflow:
+        hidden;
+
+    border:
+        2px solid transparent;
+
+    border-radius:
+        14px;
+
+    background-color:
+        #f1f3f4;
+
+    background-image:
+        linear-gradient(45deg,
+            #e3e6e8 25%,
+            transparent 25%),
+        linear-gradient(-45deg,
+            #e3e6e8 25%,
+            transparent 25%),
+        linear-gradient(45deg,
+            transparent 75%,
+            #e3e6e8 75%),
+        linear-gradient(-45deg,
+            transparent 75%,
+            #e3e6e8 75%);
+
+    background-size:
+        20px 20px;
+
+    background-position:
+        0 0,
+        0 10px,
+        10px -10px,
+        -10px 0;
+
+    transition:
+        all .2s ease;
+
+}
+
+
+.telegram-sticker-card:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 7px 18px rgba(11, 20, 26, .10);
+
+}
+
+
+.telegram-sticker-card.selected {
+
+    border-color:
+        var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(37, 211, 102, .13);
+
+}
+
+
+.telegram-sticker-card img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        contain;
+
+}
+
+
+.telegram-sticker-check {
+
+    position:
+        absolute;
+
+    top:
+        7px;
+
+    right:
+        7px;
+
+    width:
+        24px;
+
+    height:
+        24px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        2px solid white;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255, 255, 255, .9);
+
+    color:
+        #89959c;
+
+    font-size:
+        12px;
+
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, .12);
+
+    transition:
+        all .2s ease;
+
+}
+
+
+.telegram-sticker-card.selected .telegram-sticker-check {
+
+    background:
+        var(--primary);
+
+    color:
+        #073b1b;
+
+}
+
+
+.telegram-sticker-name {
+
+    display:
+        block;
+
+    margin-top:
+        5px;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        9px;
+
+    text-align:
+        center;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+    white-space:
+        nowrap;
+
+}
+
+
+/* =========================================================
+   SELECTION INFO
+========================================================= */
+
+.selection-info {
+
+    margin-top:
+        18px;
+
+    padding:
+        14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-md);
+
+    background:
+        #fafcfd;
+
+}
+
+
+.selection-header {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        12px;
+
+}
+
+
+.selection-header>div {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    min-width:
+        0;
+
+}
+
+
+.selection-header strong {
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+}
+
+
+.sticker-count {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-width:
+        25px;
+
+    height:
+        25px;
+
+    padding:
+        0 7px;
+
+    border-radius:
+        50px;
+
+    background:
+        var(--primary-light);
+
+    color:
+        var(--primary-dark);
+
+    font-size:
+        11px;
+
+    font-weight:
+        800;
+
+}
+
+
+.clear-selection-button {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        5px;
+
+    padding:
+        7px 10px;
+
+    border:
+        none;
+
+    border-radius:
+        8px;
+
+    background:
+        #fff1f1;
+
+    color:
+        #b42318;
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    transition:
+        all .2s ease;
+
+}
+
+
+.clear-selection-button:hover {
+
+    background:
+        #ffe4e4;
+
+}
+
+
+/* =========================================================
+   DESTINATION
+========================================================= */
+
+.destination-box {
+
+    border:
+        2px dashed #d8e0e4;
+
+    border-radius:
+        var(--radius-md);
+
+    padding:
+        35px 25px;
+
+    text-align:
+        center;
+
+    background:
+        #fbfcfd;
+
+    transition:
+        all .25s ease;
+
+}
+
+
+.destination-box:hover {
+
+    border-color:
+        rgba(37, 211, 102, .55);
+
+    background:
+        #f8fffa;
+
+}
+
+
+.destination-icon {
+
+    width:
+        68px;
+
+    height:
+        68px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    margin:
+        0 auto 18px;
+
+    border-radius:
+        20px;
+
+    background:
+        var(--primary-light);
+
+    color:
+        var(--primary-dark);
+
+    font-size:
+        30px;
+
+}
+
+
+.destination-box h3 {
+
+    margin:
+        0 0 8px;
+
+    font-size:
+        19px;
+
+    font-weight:
+        700;
+
+}
+
+
+.destination-box p {
+
+    max-width:
+        470px;
+
+    margin:
+        0 auto 22px;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        13px;
+
+    line-height:
+        1.6;
+
+}
+
+
+/* =========================================================
+   CONVERT BUTTON
+========================================================= */
+
+.convert-button {
+
+    width:
+        100%;
+
+    margin-top:
+        20px;
+
+    padding:
+        15px 20px;
+
+    background:
+        var(--bg-dark);
+
+    color:
+        white;
+
+    font-size:
+        15px;
+
+}
+
+
+.convert-button:hover {
+
+    background:
+        #18252c;
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 8px 20px rgba(11, 20, 26, .15);
+
+}
+
+
+.convert-button:disabled {
+
+    opacity:
+        .65;
+
+    cursor:
+        not-allowed;
+
+    transform:
+        none;
+
+    box-shadow:
+        none;
+
+}
+
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+.success-container {
+
+    text-align:
+        center;
+
+    padding:
+        10px 0;
+
+}
+
+
+.success-icon {
+
+    width:
+        70px;
+
+    height:
+        70px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    margin:
+        0 auto 18px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--primary-light);
+
+    color:
+        var(--primary-dark);
+
+    font-size:
+        32px;
+
+}
+
+
+.success-label {
+
+    display:
+        block;
+
+    color:
+        var(--primary-dark);
+
+    font-size:
+        10px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        1px;
+
+    margin-bottom:
+        7px;
+
+}
+
+
+.success-container h2 {
+
+    margin:
+        0 0 10px;
+
+    font-size:
+        24px;
+
+    font-weight:
+        800;
+
+}
+
+
+.success-container p {
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        14px;
+
+    line-height:
+        1.6;
+
+    margin-bottom:
+        20px;
+
+}
+
+
+.result-summary {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        7px;
+
+    margin:
+        0 auto 20px;
+
+    padding:
+        11px 14px;
+
+    border:
+        1px solid #ccefd8;
+
+    border-radius:
+        var(--radius-sm);
+
+    background:
+        var(--primary-light);
+
+    color:
+        var(--primary-dark);
+
+    font-size:
+        12px;
+
+    font-weight:
+        600;
+
+}
+
+
+.download-button {
+
+    width:
+        100%;
+
+    padding:
+        14px 20px;
+
+    background:
+        var(--primary);
+
+    color:
+        #073b1b;
+
+    text-decoration:
+        none;
+
+}
+
+
+.download-button:hover {
+
+    color:
+        #073b1b;
+
+    background:
+        #20c45c;
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 8px 20px rgba(37, 211, 102, .22);
+
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading {
+
+    margin-top:
+        20px;
+
+}
+
+
+.loading-card {
+
+    background:
+        white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-lg);
+
+    padding:
+        35px 20px;
+
+    text-align:
+        center;
+
+    box-shadow:
+        var(--shadow);
+
+}
+
+
+.loading-card h3 {
+
+    margin:
+        18px 0 5px;
+
+    font-size:
+        17px;
+
+}
+
+
+.loading-card p {
+
+    margin:
+        0;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        13px;
+
+}
+
+
+.spinner {
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    margin:
+        auto;
+
+    border:
+        4px solid #e5e9eb;
+
+    border-top-color:
+        var(--primary);
+
+    border-radius:
+        50%;
+
+    animation:
+        spin .8s linear infinite;
+
+}
+
+
+@keyframes spin {
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.error {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        10px;
+
+    margin-top:
+        20px;
+
+    padding:
+        14px 16px;
+
+    border:
+        1px solid #ffd1d1;
+
+    border-radius:
+        var(--radius-sm);
+
+    background:
+        #fff5f5;
+
+    color:
+        #b42318;
+
+    font-size:
+        13px;
+
+    line-height:
+        1.5;
+
+}
+
+
+.error i {
+
+    flex-shrink:
+        0;
+
+    margin-top:
+        1px;
+
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.features {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        10px;
+
+    margin-top:
+        15px;
+
+}
+
+
+.feature {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        9px;
+
+    padding:
+        13px 10px;
+
+    background:
+        rgba(255, 255, 255, .7);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-sm);
+
+}
+
+
+.feature-icon {
+
+    width:
+        32px;
+
+    height:
+        32px;
+
+    flex-shrink:
+        0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        9px;
+
+    background:
+        var(--primary-light);
+
+    color:
+        var(--primary-dark);
+
+    font-size:
+        14px;
+
+}
+
+
+.feature strong {
+
+    display:
+        block;
+
+    font-size:
+        11px;
+
+}
+
+
+.feature small {
+
+    display:
+        block;
+
+    margin-top:
+        2px;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        9px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.app-footer {
+
+    border-top:
+        1px solid var(--border);
+
+    background:
+        #ffffff;
+
+}
+
+
+.footer-content {
+
+    min-height:
+        70px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        15px;
+
+}
+
+
+.footer-brand {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+}
+
+
+.footer-brand i {
+
+    color:
+        var(--primary-dark);
+
+}
+
+
+.footer-copy {
+
+    color:
+        #89959c;
+
+    font-size:
+        11px;
+
+}
+
+
+/* =========================================================
+   UTILITY
+========================================================= */
+
+.hidden {
+
+    display:
+        none !important;
+
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.telegram-sticker-grid::-webkit-scrollbar {
+
+    width:
+        6px;
+
+}
+
+
+.telegram-sticker-grid::-webkit-scrollbar-track {
+
+    background:
+        #f1f3f4;
+
+    border-radius:
+        10px;
+
+}
+
+
+.telegram-sticker-grid::-webkit-scrollbar-thumb {
+
+    background:
+        #cbd3d8;
+
+    border-radius:
+        10px;
+
+}
+
+
+.telegram-sticker-grid::-webkit-scrollbar-thumb:hover {
+
+    background:
+        #aeb8be;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 767.98px) {
+
+    .telegram-sticker-grid {
+
+        grid-template-columns:
+            repeat(4,
+                1fr);
+
+        gap:
+            8px;
+
+        max-height:
+            470px;
+
+    }
+
+
+    .telegram-sticker-card {
+
+        border-radius:
+            11px;
+
+    }
+
+
+    .telegram-sticker-check {
+
+        width:
+            21px;
+
+        height:
+            21px;
+
+        top:
+            5px;
+
+        right:
+            5px;
+
+        font-size:
+            10px;
+
+    }
+
+
+    .sticker-browser-controls {
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .sticker-browser-info {
+
+        flex-wrap:
+            wrap;
+
+    }
+
+}
+
+
+@media (max-width: 575.98px) {
+
+    .app-navbar {
+
+        padding:
+            12px 0;
+
+    }
+
+
+    .app-brand {
+
+        font-size:
+            17px;
+
+    }
+
+
+    .brand-icon {
+
+        width:
+            34px;
+
+        height:
+            34px;
+
+        font-size:
+            16px;
+
+    }
+
+
+    .hero-section {
+
+        padding:
+            45px 0 65px;
+
+    }
+
+
+    .hero-title {
+
+        letter-spacing:
+            -1.8px;
+
+    }
+
+
+    .hero-description {
+
+        font-size:
+            14px;
+
+        padding:
+            0 10px;
+
+    }
+
+
+    .converter-section {
+
+        margin-top:
+            -25px;
+
+    }
+
+
+    .converter-card {
+
+        padding:
+            20px;
+
+        border-radius:
+            20px;
+
+    }
+
+
+    .telegram-source-box {
+
+        padding:
+            30px 16px;
+
+    }
+
+
+    .telegram-source-box h3 {
+
+        font-size:
+            17px;
+
+    }
+
+
+    .telegram-source-box p {
+
+        font-size:
+            13px;
+
+    }
+
+
+    .destination-box {
+
+        padding:
+            30px 16px;
+
+    }
+
+
+    .destination-box h3 {
+
+        font-size:
+            17px;
+
+    }
+
+
+    .sticker-browser-controls {
+
+        flex-direction:
+            column;
+
+    }
+
+
+    .sticker-browser-controls .secondary-button {
+
+        width:
+            100%;
+
+    }
+
+
+    .telegram-sticker-grid {
+
+        grid-template-columns:
+            repeat(3,
+                1fr);
+
+        gap:
+            8px;
+
+        max-height:
+            430px;
+
+    }
+
+
+    .selection-info {
+
+        padding:
+            13px;
+
+    }
+
+
+    .selection-header {
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .selection-header strong {
+
+        font-size:
+            11px;
+
+    }
+
+
+    .clear-selection-button {
+
+        font-size:
+            10px;
+
+        padding:
+            6px 8px;
+
+    }
+
+
+    .features {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .feature {
+
+        padding:
+            12px 13px;
+
+    }
+
+
+    .footer-content {
+
+        flex-direction:
+            column;
+
+        justify-content:
+            center;
+
+        padding:
+            18px 0;
+
+    }
+
+}
