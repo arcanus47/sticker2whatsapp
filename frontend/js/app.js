@@ -85,7 +85,7 @@ const errorMessage =
 ========================================================= */
 
 const API_URL =
-    "http://localhost:5100/api/convert";
+    "https://sticker2whatsapp-backend.onrender.com/api/convert";
 
 const MAX_FILES =
     50;
